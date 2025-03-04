@@ -1,6 +1,28 @@
-# Ignore common Python files and directories
-__pycache__
-venv
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
 
-# Ignore sensitive data
+# Environments
+venv/
+env/
+.env
 *.env
+
+# Database
+db.sqlite3
+*.db
+
+# Static and media files
+staticfiles/
+media/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.sublime-workspace
+
+# Logs
+*.log
