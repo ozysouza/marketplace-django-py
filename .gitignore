@@ -1,0 +1,6 @@
+# Ignore common Python files and directories
+__pycache__
+venv
+
+# Ignore sensitive data
+*.env
