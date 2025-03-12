@@ -8,8 +8,8 @@
         <form action="{% url 'item:items' %}" method="get">
             <input class="w-full py-4 px-6 border rounded-xl" name="query" type="text" value="{{ query }}" placeholder="Find an item...">
             <button class="mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
+            <a href="{% url 'item:items' %}" class="ml-8 py-4 px-8 inline-block bg-yellow-500 text-lg rounded-xl text-white">Clear filter</a>
         </form>
-
         <hr class="my-6">
 
         <p class="my-2 mx-2 font-semibold">Categories</p>
