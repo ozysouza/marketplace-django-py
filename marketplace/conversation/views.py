@@ -18,7 +18,7 @@ def new_conversation(request, item_pk):
         item=item).filter(members__in=[request.user.id])
 
     if conversations:
-        pass  # redirect to conversation once created
+        return redirect('conversation:detail', pk=conversations.first().id)
 
     if request.method == 'POST':
         form = ConversationMessageForm(request.POST)
@@ -65,9 +65,9 @@ def detail(request, pk):
             conversation_message.conversation = conversation
             conversation_message.created_by = request.user
             conversation_message.save()
-            
+
             conversation.save()
-            
+
             return redirect('conversation:detail', pk=pk)
     else:
         form = ConversationMessageForm()
