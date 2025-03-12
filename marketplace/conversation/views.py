@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from item.models import Item
 
-from forms import CovnersationMessageForm
-from models import Conversation
+from .forms import ConversationMessageForm
+from .models import Conversation
 
 
 def new_conversation(request, item_pk):
@@ -18,8 +18,8 @@ def new_conversation(request, item_pk):
     if conversations:
         pass  # redirect to conversation once created
 
-    if request.methods == 'POST':
-        form = CovnersationMessageForm(request.POST)
+    if request.method == 'POST':
+        form = ConversationMessageForm(request.POST)
 
         if form.is_valid():
             conversation = Conversation.objects.create(item=item)
@@ -34,7 +34,7 @@ def new_conversation(request, item_pk):
 
             return redirect('item:detail', pk=item_pk)
     else:
-        form = CovnersationMessageForm()
+        form = ConversationMessageForm()
 
     return render(request, 'conversation/new.html', {
         'form': form
